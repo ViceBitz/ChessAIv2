@@ -80,11 +80,7 @@ public class SmartPlayerNegamax extends Player
 	private final boolean USE_TT_QUIESCENCE = false;
 	private final boolean QUIESCENCE_SEARCHES_CHECKS = true;
 	private final boolean USE_FUTILITY_PRUNING = true;
-<<<<<<< HEAD
 	private final boolean USE_NMP = false;
-=======
-	private final boolean USE_NMP = true;
->>>>>>> 14a5aa60bbbe38f199cbd8873ceca9a3c873618a
 
 	//Heuristics Data Structures
 	private Move[][][][] counterMove = new Move[8][8][8][8]; //Counter-move for ordering
@@ -675,7 +671,6 @@ public class SmartPlayerNegamax extends Player
 		int movesSearched = 0;
 		for (Move m : moves)
 		{
-<<<<<<< HEAD
 			//Don't consider this move if it draws (for immediate move)
 			if (depth == 0) {
 				if (m.equals(prevMoves[1]) && prevMoves[1].equals(prevMoves[3]) && prevMoves[0].equals(prevMoves[2])) {
@@ -684,10 +679,6 @@ public class SmartPlayerNegamax extends Player
 			}
 			
 
-=======
-			//Don't consider this move if it draws
-			
->>>>>>> 14a5aa60bbbe38f199cbd8873ceca9a3c873618a
 			EvaluationLine childLine = new EvaluationLine(null);
 			EvaluationInfo absoluteChild = null;
 			int childValue = 0;
@@ -943,20 +934,12 @@ public class SmartPlayerNegamax extends Player
 		//Print search debug output
 		System.out.println(runInfo);
 
-<<<<<<< HEAD
 		
-=======
-		/*
->>>>>>> 14a5aa60bbbe38f199cbd8873ceca9a3c873618a
 		//Update previous moves
 		for (int i=prevMoves.length-1;i>=1;i--) {
 			prevMoves[i] = prevMoves[i-1];
 		}
 		prevMoves[0] = bestMove;
-<<<<<<< HEAD
-=======
-		*/
->>>>>>> 14a5aa60bbbe38f199cbd8873ceca9a3c873618a
 		
 		//Update move count
 		moveCount++;

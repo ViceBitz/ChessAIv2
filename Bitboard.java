@@ -832,7 +832,10 @@ public class Bitboard
             int toIndex = getLS1F(moveSet); moveSet = unsetBit(moveSet, toIndex);
             //Check promotions
             if (p instanceof Pawn && (toRow(toIndex) == 0 || toRow(toIndex) == 7)) {
-                allMoves.add(new PromotionMove(p, new Location(toRow(toIndex), toCol(toIndex))));
+                allMoves.add(new PromotionMove(p, "q", new Location(toRow(toIndex), toCol(toIndex))));
+                allMoves.add(new PromotionMove(p, "n", new Location(toRow(toIndex), toCol(toIndex))));
+                allMoves.add(new PromotionMove(p, "r", new Location(toRow(toIndex), toCol(toIndex))));
+                allMoves.add(new PromotionMove(p, "b", new Location(toRow(toIndex), toCol(toIndex))));
             }
             else {
                 allMoves.add(new Move(p, new Location(toRow(toIndex), toCol(toIndex))));

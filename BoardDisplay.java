@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.*;
 
 // Used to display the contents of a game board
 public class BoardDisplay implements ActionListener
@@ -118,7 +119,7 @@ public class BoardDisplay implements ActionListener
 				}
 			}
 			else if (selectedPiece instanceof Pawn && loc.getRow() == (selectedPiece.getColor().equals(Game.NEAR_COLOR) ? 0 : 7)) {
-				selectedMove = new PromotionMove(selectedPiece, loc);
+				selectedMove = new PromotionMove(selectedPiece, CommandLog.promotionPiece, loc);
 			}
 			// else, normal move
 			else {

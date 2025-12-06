@@ -1,9 +1,13 @@
 import java.util.*;
 public final class CommandLog extends Thread {
+    public static String promotionPiece = "q";
+
     public void run() {
         Scanner sc = new Scanner(System.in);
         while (true) {
             String line = sc.nextLine();
+
+            //Scan for live engine modifications
             if (line.equals("--tp")) {
                 System.out.println("<<TIME PRESSURE ACTIVATED>>");
                 Game.whiteAI.togglePrecisionPressure(false);
@@ -33,6 +37,12 @@ public final class CommandLog extends Thread {
                 System.out.println("<<EXTREME PRECISION DEACTIVATED>>");
                 Game.whiteAI.toggleExtremePrecisionPressure(false);
                 Game.blackAI.toggleExtremePrecisionPressure(false);
+            }
+
+            //Scan for promotion piece specification
+            if (line.startsWith("--promo ")) {
+                promotionPiece = line.replace("--promo ", "");
+                System.out.println("Set promotion piece to " + promotionPiece);
             }
         }
     }
